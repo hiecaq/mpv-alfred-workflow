@@ -23,22 +23,23 @@ class Command(object):
         self._parser = argparse.ArgumentParser(*args, **kargs)
         self.subparsers = self._parser.add_subparsers(dest='cmd')
 
-    def run(self, args):
+    def run(self, args) -> dict:
         parsed = vars(self._parser.parse_args(args))
         if 'func' in parsed:
             return parsed['func'](parsed)
         else:
             self._parser.print_usage()
-            return ""
+            return {}
 
     def add(self, *subcmds):
         for subcmd in subcmds:
             subcmd.register(self.subparsers)
 
-    def subcommand(self, *args, **kargs):
+    def subcommand(self, *args, **kargs) -> Subcommand:
         def subcommand_decorator(func: callable):
             subcmd = Subcommand(*args, **kargs)
             subcmd._callback = func
             self.add(subcmd)
+            return subcmd
 
         return subcommand_decorator
