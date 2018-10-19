@@ -3,8 +3,6 @@ import socket
 import unicodedata
 from contextlib import contextmanager
 
-SERVER_ADDRESS = '/tmp/mpvsocket'
-
 
 class UnixDomainSocket(object):
     def __init__(self, address):
