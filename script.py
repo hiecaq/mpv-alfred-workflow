@@ -35,7 +35,22 @@ def main(args):
     ]
 
     c.add(*subcmds)
-    output = c.run(args)
+    try:
+        output = c.run(args)
+    except ConnectionRefusedError:
+        output = {
+            "items": [{
+                "uid":
+                    -1,
+                "title":
+                    "mpv is not listening the given socket",
+                "arg":
+                    "",
+                "icon": {
+                    "path": "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertStopIcon.icns"
+                }
+            }]
+        }
     if isinstance(output, str):
         print(output)
     else:
