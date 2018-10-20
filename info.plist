@@ -369,7 +369,32 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>mpv-alfred-workflow
+====================
+
+Control mpv through alfred.
+
+Installation
+--------------------
+
+You need brew-installed python3 to run this workflow. Otherwise, you have to set up the python3 path manually in the scripts.
+
+Usage
+--------------------
+
+mpv has to be started with `--input-ipc-server` flag:
+
+```bash
+mpv --input-ipc-server=/tmp/mpvsocket
+```
+
+the socket address is default to `/tmp/mpvsocket`.
+
+This workflow would be useful if you use mpv as a music player because you don't like any music player on Mac OS, via some command like this:
+
+```bash
+mpv --playlist &lt;(find ~/Music | ag -v "instrumental|Drama|off vocal|オリジナルドラマ" | ag "\.(mp3|flac)$") --shuffle --loop-playlist=yes --no-audio-display --volume=30 --input-ipc-server=/tmp/mpvsocket
+```</string>
 	<key>uidata</key>
 	<dict>
 		<key>0E7E8947-65C2-48AE-8194-8970FEA23514</key>
@@ -443,6 +468,8 @@
 			<integer>120</integer>
 		</dict>
 	</dict>
+	<key>version</key>
+	<string>0.1.0</string>
 	<key>webaddress</key>
 	<string>https://quinoa42.github.io</string>
 </dict>
