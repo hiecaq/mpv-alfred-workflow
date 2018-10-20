@@ -47,6 +47,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>3D0A63C6-C80C-4711-A1AF-360EEB5C8FBC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CA7B50B8-405A-46DD-9FE6-287335725A03</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>3FFF2B80-B7A4-40A0-923F-9D39D8251BD7</key>
 		<array>
 			<dict>
@@ -83,11 +96,34 @@
 				<false/>
 			</dict>
 		</array>
+		<key>CA7B50B8-405A-46DD-9FE6-287335725A03</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B552F3F1-9379-4F6F-8A13-6FE0319FEB63</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>D46BEE72-2488-4B32-A1FC-6CC2BC4058DB</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>10E42266-827D-48D4-8B99-89ABA73ED19B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>3D0A63C6-C80C-4711-A1AF-360EEB5C8FBC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -142,7 +178,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>hello</string>
+				<string>mpv</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -221,13 +257,13 @@
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"playlist","arg":"list","subtitle":"show the current playlist."}]</string>
+				<string>[{"title":"playlist","arg":"list","subtitle":"show the current playlist."},{"title":"toggle","arg":"toggle","subtitle":"Toggle whether playing the current file."}]</string>
 				<key>keyword</key>
 				<string>mpv</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>subtext</key>
-				<string>aaa</string>
+				<string>controll mpv though alfred</string>
 				<key>title</key>
 				<string>mpv</string>
 				<key>withspace</key>
@@ -289,6 +325,48 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/local/bin/python3 ./script.py toggle</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>CA7B50B8-405A-46DD-9FE6-287335725A03</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>toggle</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>3D0A63C6-C80C-4711-A1AF-360EEB5C8FBC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -318,9 +396,16 @@
 		<key>1F01EEA7-0B90-4B4D-9BAA-E77FE5FB134F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>620</integer>
+			<integer>600</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>80</integer>
+		</dict>
+		<key>3D0A63C6-C80C-4711-A1AF-360EEB5C8FBC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>240</integer>
+			<key>ypos</key>
+			<integer>240</integer>
 		</dict>
 		<key>3FFF2B80-B7A4-40A0-923F-9D39D8251BD7</key>
 		<dict>
@@ -339,9 +424,16 @@
 		<key>B552F3F1-9379-4F6F-8A13-6FE0319FEB63</key>
 		<dict>
 			<key>xpos</key>
-			<integer>780</integer>
+			<integer>750</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>100</integer>
+		</dict>
+		<key>CA7B50B8-405A-46DD-9FE6-287335725A03</key>
+		<dict>
+			<key>xpos</key>
+			<integer>310</integer>
+			<key>ypos</key>
+			<integer>230</integer>
 		</dict>
 		<key>D46BEE72-2488-4B32-A1FC-6CC2BC4058DB</key>
 		<dict>

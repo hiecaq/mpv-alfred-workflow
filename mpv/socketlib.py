@@ -58,14 +58,15 @@ class JsonSocket(MessageSocket):
     def __init__(self, address):
         MessageSocket.__init__(self, address)
 
-    def send_recv_json(self, jsn):
+    def send_recv_jsons(self, jsn):
         """Send a json to the mpv socket, and return the feedback as a json.
 
         :param dict jsn: an json being sent
         :rtypes: dict
 
         """
-        return json.loads(self.send_recv_message(json.dumps(jsn)))
+        objs = self.send_recv_message(json.dumps(jsn)).split('\n')
+        return [json.loads(obj) for obj in objs]
 
 
 class CommandSocket(JsonSocket):
@@ -79,7 +80,8 @@ class CommandSocket(JsonSocket):
 
         :param argv: a list of command args
         """
-        result = self.send_recv_json({"command": argv})
+        results = self.send_recv_jsons({"command": argv})
+        result = next(obj for obj in results if "event" not in obj)
         if result["error"] == "success":
             return True, result["data"] if "data" in result else None
         else:

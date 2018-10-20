@@ -37,3 +37,13 @@ class Mpv(object):
             return None
         else:
             return filename
+
+    def is_playing(self):
+        status, pause = self._wrappercall("get_property", "pause")
+        if not status:
+            return True
+        return not pause
+
+    def toggle_playing(self):
+        status, _ = self._wrappercall("cycle", "pause")
+        return status
